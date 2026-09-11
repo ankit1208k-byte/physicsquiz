@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>विद्युत धारा (Electric Current) - Class 10th MCQ Quiz | Super Kids Study Centre</title>
+  <style>
+    /* ============================================================
+       RESET & BASE STYLING
+       ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-gradient: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 55%, #020617 100%);
+      --card-bg: rgba(30, 41, 59, 0.75);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --accent-cyan: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.25);
+      --neon-green: #22c55e;
+      --coral-red: #ef4444;
+      --amber-gold: #f59e0b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --btn-primary: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+      --btn-hover: linear-gradient(135deg, #38bdf8 0%, #3b82f6 100%);
+      --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+      --font-stack: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Nirmala UI', 'Noto Sans Devanagari', Roboto, Arial, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-stack);
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Container */
+    .app-container {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Modern Glass Card */
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ============================================================
+       STICKY HEADER & PROGRESS BAR
+       ============================================================ */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      width: 100%;
+      padding: 10px 16px;
+    }
+
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Timer Pill */
+    .timer-pill {
+      background: rgba(2, 132, 199, 0.2);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #e0f2fe;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timer-pill.urgent {
+      background: rgba(239, 68, 68, 0.25);
+      border-color: var(--coral-red);
+      color: #fecaca;
+      animation: pulseAlert 1s infinite alternate;
+    }
+
+    @keyframes pulseAlert {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+
+    /* Fullscreen Button */
+    .icon-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      border-radius: 10px;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
+    }
+    .icon-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: var(--accent-cyan);
+    }
+
+    /* Progress Bar */
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8, #22c55e);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    /* ============================================================
+       START SCREEN FORM
+       ============================================================ */
+    .center-screen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 25px;
+      margin-bottom: 30px;
+    }
+
+    .hero-banner {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .hero-banner h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #f8fafc;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #ffffff 40%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-banner .institute-badge {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 4px 14px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: var(--accent-cyan);
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .hero-banner p {
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      background: rgba(15, 23, 42, 0.85);
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .quiz-rules-list {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 22px;
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      text-align: left;
+    }
+
+    .quiz-rules-list li {
+      margin-left: 20px;
+      margin-top: 5px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-primary {
+      background: var(--btn-primary);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--btn-hover);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    .btn-success {
+      background: linear-gradient(135deg, #16a34a, #22c55e);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(34, 197, 94, 0.35);
+    }
+
+    .btn-success:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 6px 20px rgba(34, 197, 94, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    /* ============================================================
+       QUESTION CARD & OPTIONS
+       ============================================================ */
+    .meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+    }
+
+    .q-badge {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-cyan);
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .student-badge {
+      font-size: 0.84rem;
+      color: #cbd5e1;
+    }
+
+    .question-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 22px;
+      line-height: 1.5;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .option-card {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .option-card:hover {
+      background: rgba(30, 41, 59, 0.95);
+      border-color: rgba(56, 189, 248, 0.5);
+      transform: translateX(4px);
+    }
+
+    .option-card.selected {
+      background: rgba(14, 116, 144, 0.25);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+    }
+
+    .opt-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #cbd5e1;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+
+    .option-card.selected .opt-circle {
+      border-color: var(--accent-cyan);
+      background: var(--accent-cyan);
+      color: #0f172a;
+    }
+
+    .opt-text {
+      font-size: 1.02rem;
+      color: #f1f5f9;
+      flex: 1;
+    }
+
+    /* Navigation Actions */
+    .nav-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* ============================================================
+       MODAL (SUBMIT CONFIRM & ANTI-CHEAT)
+       ============================================================ */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: #0f172a;
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 24px;
+      max-width: 440px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+      text-align: center;
+      transform: scale(0.95);
+      transition: transform 0.25s ease;
+    }
+
+    .modal-overlay.active .modal-box {
+      transform: scale(1);
+    }
+
+    .modal-icon {
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .modal-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .modal-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .modal-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    /* Toast Alert (Anti Cheat) */
+    .toast-alert {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #ef4444;
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 10px 25px rgba(239, 68, 68, 0.45);
+      z-index: 2000;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toast-alert.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ============================================================
+       RESULT SCREEN & SCORECARD
+       ============================================================ */
+    .result-scorecard {
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .celebration-badge {
+      font-size: 3rem;
+      margin-bottom: 8px;
+    }
+
+    .score-circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin: 18px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, rgba(15, 23, 42, 0.9) 80%);
+      border: 3px solid var(--accent-cyan);
+      box-shadow: 0 0 25px var(--accent-glow);
+    }
+
+    .score-circle .big-num {
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .score-circle .sub-txt {
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+      margin-top: 4px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin: 24px 0;
+      text-align: left;
+    }
+
+    .stat-item {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 4px;
+    }
+
+    .stat-value.text-green { color: var(--neon-green); }
+    .stat-value.text-red { color: var(--coral-red); }
+    .stat-value.text-cyan { color: var(--accent-cyan); }
+    .stat-value.text-gold { color: var(--amber-gold); }
+
+    /* ============================================================
+       REVIEW SECTION
+       ============================================================ */
+    .review-container {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
+    }
+
+    .review-card {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    .review-q-num {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      margin-bottom: 6px;
+    }
+
+    .review-q-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .review-opt {
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid transparent;
+    }
+
+    .review-opt.correct {
+      background: rgba(34, 197, 94, 0.15);
+      border-color: var(--neon-green);
+      color: #86efac;
+      font-weight: 600;
+    }
+
+    .review-opt.wrong {
+      background: rgba(239, 68, 68, 0.15);
+      border-color: var(--coral-red);
+      color: #fca5a5;
+      font-weight: 600;
+    }
+
+    .explanation-box {
+      margin-top: 12px;
+      background: rgba(56, 189, 248, 0.08);
+      border-left: 3px solid var(--accent-cyan);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+
+    .explanation-box strong {
+      color: var(--accent-cyan);
+    }
+
+    /* Animation utility */
+    .fade-in {
+      animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .app-container {
+        padding: 10px;
+      }
+      .glass-card {
+        padding: 20px 14px;
+      }
+      .question-title {
+        font-size: 1.1rem;
+      }
+      .opt-text {
+        font-size: 0.95rem;
+      }
+      .brand-title span.sub {
+        display: none;
+      }
+      .hero-banner h1 {
+        font-size: 1.6rem;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       STICKY HEADER
+       ============================================================ -->
+  <header class="sticky-header" id="stickyHeader" style="display: none;">
+    <div class="header-inner">
+      <div class="brand-title">
+        ⚡ <span>SUPER KIDS STUDY CENTRE</span>
+      </div>
+      <div class="header-controls">
+        <div class="timer-pill" id="timerPill">
+          ⏱️ <span id="timerDisplay">30:00</span>
+        </div>
+        <button class="icon-btn" id="fsToggleBtn" title="फुलस्क्रीन मोड">
+          ⛶ <span class="fs-text">Fullscreen</span>
+        </button>
+      </div>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       APP MAIN CONTAINER
+       ============================================================ -->
+  <main class="app-container">
+
+    <!-- ==================== VIEW 1: START SCREEN ==================== -->
+    <section id="startScreen" class="center-screen">
+      <div class="hero-banner">
+        <h1>SUPER KIDS STUDY CENTRE</h1>
+        <div class="institute-badge">Class 10th Science (Physics) • ऑनलाइन टेस्ट</div>
+        <p>अध्याय: <strong>विद्युत धारा (Electric Current)</strong> | UP Board + Concept Based</p>
+      </div>
+
+      <div class="glass-card" style="width: 100%; max-width: 520px;">
+        <form id="studentForm" onsubmit="handleStartQuiz(event)">
+          <div class="form-group">
+            <label for="studentName">विद्यार्थी का पूरा नाम (Full Name) *</label>
+            <input type="text" id="studentName" class="form-control" placeholder="उदा. राहुल शर्मा" required autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label for="studentClass">कक्षा (Class) *</label>
+            <input type="text" id="studentClass" class="form-control" value="Class 10th" readonly>
+          </div>
+
+          <div class="form-group">
+            <label for="studentRoll">अनुक्रमांक (Roll Number) *</label>
+            <input type="text" id="studentRoll" class="form-control" placeholder="उदा. 10245" required>
+          </div>
+
+          <div class="quiz-rules-list">
+            <strong>📋 परीक्षा निर्देश:</strong>
+            <ul>
+              <li>कुल प्रश्न: <strong>35 बहुविकल्पीय (MCQ)</strong></li>
+              <li>कुल समय: <strong>30 मिनट</strong></li>
+              <li>प्रत्येक सही उत्तर: <strong>+1 अंक</strong> (कोई नकारात्मक अंकन नहीं)</li>
+              <li>टैब या ऐप बदलने पर एंटी-चीट चेतावनी प्राप्त होगी।</li>
+            </ul>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            🚀 टेस्ट शुरू करें (Start Quiz)
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 2: QUIZ SCREEN ==================== -->
+    <section id="quizScreen" style="display: none; width: 100%;">
+      <div class="glass-card fade-in" id="questionCard">
+        <div class="meta-bar">
+          <span class="q-badge" id="qNumberBadge">प्रश्न 1 / 35</span>
+          <span class="student-badge" id="studentInfoBadge">नाम: - | रोल: -</span>
+        </div>
+
+        <h2 class="question-title" id="questionText">प्रश्न लोड हो रहा है...</h2>
+
+        <div class="options-grid" id="optionsContainer">
+          <!-- Options will be generated dynamically -->
+        </div>
+
+        <div class="nav-actions">
+          <button class="btn btn-secondary" id="prevBtn" onclick="navigateQuestion(-1)">
+            ⬅ पिछला (Previous)
+          </button>
+          
+          <button class="btn btn-primary" id="nextBtn" onclick="navigateQuestion(1)">
+            अगला (Next) ➡
+          </button>
+
+          <button class="btn btn-success" id="submitModalBtn" onclick="openSubmitModal()" style="display: none;">
+            ✔ टेस्ट सबमिट करें
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 3: RESULT & REVIEW SCREEN ==================== -->
+    <section id="resultScreen" style="display: none; width: 100%;">
+      <div class="glass-card result-scorecard fade-in">
+        <div class="celebration-badge" id="resultEmoji">🏆</div>
+        <h2 style="font-size: 1.8rem; font-weight: 800; color: #fff;">SUPER KIDS STUDY CENTRE</h2>
+        <p style="color: var(--accent-cyan); font-weight: 600;" id="resultFeedback">शानदार प्रदर्शन!</p>
+
+        <div class="score-circle">
+          <div class="big-num" id="scoreDisplay">0</div>
+          <div class="sub-txt" id="percentageDisplay">0% स्कोर</div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-label">विद्यार्थी का नाम</div>
+            <div class="stat-value text-cyan" id="resStudentName">-</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">अनुक्रमांक (Roll No.)</div>
+            <div class="stat-value text-cyan" id="resRollNo">-</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">कुल प्रश्न</div>
+            <div class="stat-value" id="resTotalQ">35</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">हल किए गए (Attempted)</div>
+            <div class="stat-value text-gold" id="resAttempted">0</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">सही उत्तर (Correct)</div>
+            <div class="stat-value text-green" id="resCorrect">0</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">गलत उत्तर (Wrong)</div>
+            <div class="stat-value text-red" id="resWrong">0</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">लिया गया समय</div>
+            <div class="stat-value" id="resTimeTaken">00:00</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">अंतिम परिणाम</div>
+            <div class="stat-value" id="resStatus">पास</div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+          <button class="btn btn-secondary" onclick="restartQuiz()">
+            🔄 दोबारा टेस्ट दें (Restart)
+          </button>
+          <button class="btn btn-primary" onclick="scrollToReview()">
+            📖 विस्तृत व्याख्या देखें (Review Answers)
+          </button>
+        </div>
+      </div>
+
+      <!-- Detailed Review List -->
+      <div class="review-container" id="reviewContainer">
+        <div class="review-header">
+          <h3 style="font-size: 1.3rem; color: #fff;">📝 सभी 35 प्रश्नों का हल एवं व्याख्या</h3>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">कक्षा 10वीं - विद्युत धारा</span>
+        </div>
+        <div id="reviewQuestionsList">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       SUBMIT CONFIRMATION MODAL
+       ============================================================ -->
+  <div class="modal-overlay" id="submitModal">
+    <div class="modal-box">
+      <div class="modal-icon">⚠️</div>
+      <h3 class="modal-title">क्या आप टेस्ट सबमिट करना चाहते हैं?</h3>
+      <p class="modal-desc" id="submitModalStats">
+        आपने कुल 35 में से 0 प्रश्नों के उत्तर दिए हैं।
+      </p>
+      <div class="modal-btns">
+        <button class="btn btn-secondary" onclick="closeSubmitModal()">
+          वापस जाएं
+        </button>
+        <button class="btn btn-success" onclick="confirmSubmitQuiz()">
+          हाँ, सबमिट करें
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Anti Cheat Toast Alert -->
+  <div class="toast-alert" id="antiCheatToast">
+    ⚠️ चेतावनी: टैब बदलना मना है! कृपया ईमानदारी से टेस्ट पूरा करें।
+  </div>
+
+  <!-- ============================================================
+       JAVASCRIPT LOGIC
+       ============================================================ -->
+  <script>
+    /* ============================================================
+       1. COMPLETE QUESTION BANK: 35 CLASS 10TH ELECTRIC CURRENT MCQS
+       ============================================================ */
+    const rawQuestions = [
+      {
+        question: "विद्युत आवेश (Electric Charge) का SI मात्रक क्या होता है?",
+        options: ["वोल्ट (Volt)", "एम्पियर (Ampere)", "कूलॉम (Coulomb)", "ओम (Ohm)"],
+        correct: 2,
+        explanation: "विद्युत आवेश का SI मात्रक कूलॉम (C) है। आवेश सूत्र Q = I × t द्वारा ज्ञात किया जाता है।"
+      },
+      {
+        question: "विद्युत धारा (Electric Current) की माप किस SI इकाई में की जाती है?",
+        options: ["एम्पियर (A)", "वाट (W)", "जूल (J)", "वोल्ट (V)"],
+        correct: 0,
+        explanation: "विद्युत धारा का मात्रक एम्पियर (A) होता है। एकांक समय में किसी परिपथ से प्रवाहित आवेश की दर को विद्युत धारा कहते हैं (I = Q/t)।"
+      },
+      {
+        question: "किसी विद्युत परिपथ में दो बिंदुओं के बीच विभवांतर मापने के लिए किस यंत्र का उपयोग किया जाता है?",
+        options: ["अमीटर", "वोल्टमीटर", "गैल्वेनोमीटर", "ओडोमीटर"],
+        correct: 1,
+        explanation: "विभवांतर मापने के लिए 'वोल्टमीटर' का उपयोग किया जाता है और इसे परिपथ में हमेशा समानांतर क्रम (पार्श्वक्रम) में जोड़ा जाता है।"
+      },
+      {
+        question: "विद्युत परिपथ में प्रवाहित होने वाली धारा को मापने के लिए किस उपकरण को श्रेणीक्रम में लगाया जाता है?",
+        options: ["वोल्टमीटर", "डायनेमो", "अमीटर (Ammeter)", "ट्रांसफार्मर"],
+        correct: 2,
+        explanation: "विद्युत धारा को सीधे मापने के लिए अमीटर का प्रयोग किया जाता है, जिसका आंतरिक प्रतिरोध नगण्य होता है और इसे श्रेणीक्रम में जोड़ते हैं।"
+      },
+      {
+        question: "किसी चालक के विद्युत प्रतिरोध (Resistance) का SI मात्रक क्या है?",
+        options: ["ओम-मीटर", "ओम (Ω)", "कूलॉम", "फैराडे"],
+        correct: 1,
+        explanation: "प्रतिरोध का SI मात्रक ओम (Ω) होता है। यह चालक का वह स्वाभाविक गुण है जो उसमें विद्युत धारा के प्रवाह का विरोध करता है।"
+      },
+      {
+        question: "ओम के नियमानुसार यदि चालक का ताप नियत रहे, तो विभवांतर (V) और धारा (I) में क्या संबंध होता है?",
+        options: ["V = I / R", "V = I × R", "V = R / I", "V = I² × R"],
+        correct: 1,
+        explanation: "ओम के नियम के अनुसार, स्थिर ताप पर चालक के सिरों का विभवांतर उसमें बहने वाली धारा के समानुपाती होता है (V ∝ I ⇒ V = IR)।"
+      },
+      {
+        question: "एक इलेक्ट्रॉन (e⁻) पर कितना ऋणात्मक आवेश उपस्थित होता है?",
+        options: ["1.6 × 10⁻¹⁹ C", "1.6 × 10¹⁹ C", "9.1 × 10⁻³¹ C", "6.25 × 10¹⁸ C"],
+        correct: 0,
+        explanation: "एक इलेक्ट्रॉन पर मूल आवेश e = 1.6 × 10⁻¹⁹ कूलॉम (ऋणावेश) होता है।"
+      },
+      {
+        question: "1 वोल्ट (1 V) विभवांतर को निम्नलिखित में से किस प्रकार परिभाषित किया जा सकता है?",
+        options: ["1 जूल / 1 कूलॉम", "1 कूलॉम / 1 सेकंड", "1 न्यूटन / 1 कूलॉम", "1 वाट / 1 सेकंड"],
+        correct: 0,
+        explanation: "सूत्र V = W / Q के आधार पर जब 1 कूलॉम आवेश को अनंत से किसी बिंदु तक लाने में 1 जूल कार्य करना पड़े, तो विभवांतर 1 वोल्ट कहलाता है (1 V = 1 J/C)।"
+      },
+      {
+        question: "यदि किसी चालक तार को खींचकर उसकी लंबाई दोगुनी कर दी जाए, तो उसका नया प्रतिरोध मूल प्रतिरोध का कितना होगा?",
+        options: ["आधा", "दोगुना", "अपरिवर्तित", "चार गुना"],
+        correct: 3,
+        explanation: "तार खींचने पर आयतन नियत रहता है, लंबाई 2L होने पर अनुप्रस्थ काट A/2 हो जाता है। अतः नया प्रतिरोध R' = ρ(2L)/(A/2) = 4R (चार गुना) हो जाएगा।"
+      },
+      {
+        question: "किसी चालक तार की मोटाई (अनुप्रस्थ काट क्षेत्रफल) बढ़ाने पर उसके प्रतिरोध पर क्या प्रभाव पड़ता है?",
+        options: ["प्रतिरोध बढ़ जाता है", "प्रतिरोध घट जाता है", "प्रतिरोध शून्य हो जाता है", "कोई प्रभाव नहीं पड़ता"],
+        correct: 1,
+        explanation: "प्रतिरोध अनुप्रस्थ काट क्षेत्रफल के व्युत्क्रमानुपाती होता है (R ∝ 1/A)। इसलिए तार मोटा होने पर प्रतिरोध घट जाता है।"
+      },
+      {
+        question: "विद्युत प्रतिरोधकता (Resistivity) का SI मात्रक क्या होता है?",
+        options: ["ओम (Ω)", "ओम / मीटर", "ओम-मीटर (Ω·m)", "सीमेंस"],
+        correct: 2,
+        explanation: "प्रतिरोधकता ρ = (R × A) / L होती है। इसका SI मात्रक (Ω × m²)/m = ओम-मीटर (Ω·m) है।"
+      },
+      {
+        question: "प्रतिरोधों के श्रेणीक्रम संयोजन (Series Connection) में कौन-सी राशि सभी प्रतिरोधकों में एक समान रहती है?",
+        options: ["विभवांतर", "विद्युत धारा (I)", "विद्युत शक्ति", "तापमान"],
+        correct: 1,
+        explanation: "श्रेणीक्रम में जुड़े सभी उपकरणों में केवल एक ही मार्ग होने के कारण विद्युत धारा का मान सदैव समान रहता है।"
+      },
+      {
+        question: "प्रतिरोधों के पार्श्वक्रम (समानांतर क्रम) संयोजन में प्रत्येक प्रतिरोधक के सिरों पर क्या समान रहता है?",
+        options: ["विद्युत धारा", "विभवांतर (Voltage)", "ऊष्मा", "आवेश"],
+        correct: 1,
+        explanation: "समानांतर क्रम में सभी प्रतिरोधक सीधे एक ही मुख्य वोल्टेज स्रोत से जुड़े होते हैं, इसलिए उनके सिरों का विभवांतर समान रहता है।"
+      },
+      {
+        question: "विद्युत शक्ति (Electric Power) का SI मात्रक क्या है?",
+        options: ["जूल (J)", "किलोवाट-घंटा", "वाट (Watt)", "कैलोरी"],
+        correct: 2,
+        explanation: "विद्युत शक्ति का SI मात्रक वाट (W) होता है। 1 वाट = 1 जूल प्रति सेकंड (1 W = 1 J/s)।"
+      },
+      {
+        question: "व्यापारिक यूनिट '1 किलोवाट घंटा' (1 kWh) का मान कितने जूल के बराबर होता है?",
+        options: ["3.6 × 10⁵ J", "3.6 × 10⁶ J", "36 × 10⁷ J", "1000 J"],
+        correct: 1,
+        explanation: "1 kWh = 1000 W × 3600 s = 3.6 × 10⁶ जूल (J)। इसे ही आम बोलचाल में 1 यूनिट बिजली कहते हैं।"
+      },
+      {
+        question: "विद्युत धारा के उष्मीय प्रभाव के लिए 'जूल का तापन नियम' किस गणितीय सूत्र द्वारा दिया जाता है?",
+        options: ["H = I · R · t", "H = I² · R · t", "H = I · R² / t", "H = I² · R / t"],
+        correct: 1,
+        explanation: "जूल के तापन नियम के अनुसार किसी चालक में उत्पन्न ऊष्मा H = I²Rt होती है, जहाँ I धारा, R प्रतिरोध और t समय है।"
+      },
+      {
+        question: "पारंपरिक तापदीप्त विद्युत बल्ब का फिलामेंट (तंतु) किस धातु का बनाया जाता है?",
+        options: ["तांबा (Copper)", "नाइक्रोम (Nichrome)", "टंगस्टन (Tungsten)", "ऐलुमिनियम"],
+        correct: 2,
+        explanation: "विद्युत बल्ब का तंतु टंगस्टन का बनाया जाता है क्योंकि इसका गलनांक अत्यधिक उच्च (लगभग 3380°C) होता है और यह श्वेत-तप्त होकर प्रकाश देता है।"
+      },
+      {
+        question: "घरेलू विद्युत परिपथ में सभी विद्युत उपकरणों को किस संयोजन क्रम में जोड़ा जाता है?",
+        options: ["श्रेणीक्रम में", "समानांतर क्रम (पार्श्वक्रम) में", "मिश्रित क्रम में", "खुले परिपथ में"],
+        correct: 1,
+        explanation: "घरों में सभी उपकरण समानांतर क्रम में जोड़े जाते हैं ताकि सभी को 220V का समान विभवांतर मिले और एक उपकरण बंद होने पर दूसरा प्रभावित न हो।"
+      },
+      {
+        question: "विद्युत हीटर, गीजर एवं प्रेस का तापन अवयव (Heating Element) किस मिश्रधातु का बनाया जाता है?",
+        options: ["पीतल", "कांसा", "नाइक्रोम (Nichrome)", "जर्मन सिल्वर"],
+        correct: 2,
+        explanation: "नाइक्रोम (निकेल + क्रोमियम + मैंगनीज + लोहा) की उच्च प्रतिरोधकता होती है तथा उच्च ताप पर इसका ऑक्सीकरण (दहन) नहीं होता।"
+      },
+      {
+        question: "सुरक्षा उपकरण के रूप में प्रयुक्त होने वाला विद्युत फ्यूज तार किस प्रभाव पर कार्य करता है?",
+        options: ["धारा के चुंबकीय प्रभाव पर", "धारा के रासायनिक प्रभाव पर", "धारा के तापीय (उष्मीय) प्रभाव पर", "प्रकाश प्रभाव पर"],
+        correct: 2,
+        explanation: "अतिभारण या शॉर्ट सर्किट पर उच्च धारा बहने से जूल ऊष्मा के कारण फ्यूज तार गलकर टूट जाता है, जिससे परिपथ सुरक्षित रहता है।"
+      },
+      {
+        question: "एक आदर्श अमीटर (Ideal Ammeter) का विद्युत प्रतिरोध कितना होना चाहिए?",
+        options: ["शून्य (Zero)", "अत्यंत अधिक", "10 ओम", "अनंत (Infinite)"],
+        correct: 0,
+        explanation: "आदर्श अमीटर का आंतरिक प्रतिरोध शून्य होना चाहिए ताकि परिपथ में जुड़ने पर यह कुल धारा को प्रभावित न करे।"
+      },
+      {
+        question: "एक आदर्श वोल्टमीटर (Ideal Voltmeter) का प्रतिरोध कितना माना जाता है?",
+        options: ["शून्य", "अनंत (Infinite)", "1 ओम", "100 ओम"],
+        correct: 1,
+        explanation: "आदर्श वोल्टमीटर का प्रतिरोध अनंत होना चाहिए जिससे कि वह परिपथ से नगण्य धारा ले और सिरों के बीच सटीक विभवांतर नाप सके।"
+      },
+      {
+        question: "घरेलू वायरिंग में सुरक्षा फ्यूज को हमेशा किस तार के साथ श्रेणीक्रम में जोड़ा जाता है?",
+        options: ["उदासीन तार (Neutral wire)", "भूसंपर्क तार (Earth wire)", "विद्युन्मय/फेज तार (Live wire)", "किसी भी तार के साथ"],
+        correct: 2,
+        explanation: "फ्यूज को सदैव गर्म या विद्युन्मय (Live) तार के साथ श्रेणी में जोड़ा जाता है ताकि फ्यूज उड़ते ही पूरे उपकरण में विद्युत धारा का प्रवेश रुक जाए।"
+      },
+      {
+        question: "भारत में घरेलू उपयोग हेतु आपूर्ति की जाने वाली प्रत्यावर्ती धारा (AC) की आवृत्ति कितनी होती है?",
+        options: ["60 Hz", "50 Hz", "100 Hz", "220 Hz"],
+        correct: 1,
+        explanation: "भारत में घरेलू AC वोल्टेज 220 V तथा मानक आवृत्ति 50 हर्ट्ज (50 चक्र प्रति सेकंड) होती है।"
+      },
+      {
+        question: "यदि R₁ और R₂ मान के दो प्रतिरोध समानांतर क्रम में जुड़े हों, तो तुल्य प्रतिरोध (R) क्या होगा?",
+        options: ["R₁ + R₂", "(R₁ × R₂) / (R₁ + R₂)", "(R₁ + R₂) / (R₁ × R₂)", "√(R₁ × R₂)"],
+        correct: 1,
+        explanation: "1/R = 1/R₁ + 1/R₂ = (R₁ + R₂) / (R₁ × R₂) ⇒ R = (R₁ × R₂) / (R₁ + R₂)।"
+      },
+      {
+        question: "220 V आपूर्ति पर कार्य करने वाले 100 W के विद्युत लैंप का प्रतिरोध कितना होगा?",
+        options: ["220 Ω", "100 Ω", "484 Ω", "242 Ω"],
+        correct: 2,
+        explanation: "सूत्र P = V² / R से, R = V² / P = (220 × 220) / 100 = 48400 / 100 = 484 ओम।"
+      },
+      {
+        question: "व्यावहारिक रूप से विद्युत ऊर्जा की खपत को मापने वाला मात्रक 'kWh' किस भौतिक राशि का मात्रक है?",
+        options: ["विद्युत शक्ति", "विद्युत ऊर्जा (Electric Energy)", "विद्युत आवेश", "विभवांतर"],
+        correct: 1,
+        explanation: "kWh विद्युत ऊर्जा का मात्रक है। शक्ति (kW) × समय (h) = कार्य या विद्युत ऊर्जा।"
+      },
+      {
+        question: "1 अश्वशक्ति (1 Horsepower - HP) कितने वाट के बराबर होती है?",
+        options: ["500 वाट", "746 वाट", "1000 वाट", "750 वाट"],
+        correct: 1,
+        explanation: "1 HP = 746 वाट (W) होता है। यह मशीनों की क्षमता व्यक्त करने का पारंपरिक मात्रक है।"
+      },
+      {
+        question: "1 कूलॉम ऋण आवेश में इलेक्ट्रॉनों की कुल संख्या लगभग कितनी होती है?",
+        options: ["6.25 × 10¹⁸", "1.6 × 10⁻¹⁹", "6.25 × 10¹⁹", "9.1 × 10³¹"],
+        correct: 0,
+        explanation: "Q = ne से n = Q / e = 1 / (1.6 × 10⁻¹⁹) = 6.25 × 10¹⁸ इलेक्ट्रॉन।"
+      },
+      {
+        question: "लघुपथन (Short Circuit) के समय विद्युत परिपथ में विद्युत धारा का मान:",
+        options: ["बहुत कम हो जाता है", "शून्य हो जाता है", "बहुत अधिक बढ़ जाता है", "स्थिर रहता है"],
+        correct: 2,
+        explanation: "शॉर्ट सर्किट में लाइव और न्यूट्रल तार के सीधे संपर्क में आने से परिपथ का प्रतिरोध लगभग शून्य हो जाता है और धारा अत्यधिक बढ़ जाती है।"
+      },
+      {
+        question: "किसी धातु चालक का विद्युत प्रतिरोध निम्नलिखित में से किस बात पर निर्भर नहीं करता?",
+        options: ["चालक की लंबाई पर", "चालक के अनुप्रस्थ काट क्षेत्रफल पर", "चालक पर आरोपित विभवांतर पर", "चालक के पदार्थ की प्रकृति पर"],
+        correct: 2,
+        explanation: "चालक का प्रतिरोध उसकी लंबाई, मोटाई, पदार्थ और ताप पर निर्भर करता है, आरोपित विभवांतर पर निर्भर नहीं करता।"
+      },
+      {
+        question: "2 Ω, 3 Ω तथा 6 Ω के तीन प्रतिरोधकों को पार्श्वक्रम (समानांतर क्रम) में संयोजित करने पर समतुल्य प्रतिरोध क्या होगा?",
+        options: ["11 Ω", "1 Ω", "0.5 Ω", "6 Ω"],
+        correct: 1,
+        explanation: "1/R = 1/2 + 1/3 + 1/6 = (3 + 2 + 1) / 6 = 6/6 = 1 ⇒ R = 1 ओम।"
+      },
+      {
+        question: "धातु के चालक तार में विद्युत धारा का प्रवाह वास्तव में किसके निश्चित दिशा में प्रवाह के कारण होता है?",
+        options: ["प्रोटॉनों के प्रवाह से", "न्यूट्रॉनों के प्रवाह से", "मुक्त इलेक्ट्रॉनों (Free Electrons) के प्रवाह से", "परमाणु नाभिक के प्रवाह से"],
+        correct: 2,
+        explanation: "ठोस चालकों में विद्युत धारा का संवहन ऋणावेशित मुक्त इलेक्ट्रॉनों की गति के कारण होता है, जो निम्न विभव से उच्च विभव की ओर चलते हैं।"
+      },
+      {
+        question: "1 मिलीएम्पियर (1 mA) विद्युत धारा का मान कितने एम्पियर के तुल्य होता है?",
+        options: ["10⁻³ A", "10⁻⁶ A", "10³ A", "10⁻² A"],
+        correct: 0,
+        explanation: "1 मिलीएम्पियर (mA) = 10⁻³ एम्पियर (A) तथा 1 माइक्रोएम्पियर (µA) = 10⁻⁶ एम्पियर होता है।"
+      },
+      {
+        question: "घरेलू विद्युत उपकरणों में भूसंपर्क तार (Earth Wire) का मुख्य उद्देश्य क्या है?",
+        options: ["उपकरण को अतिरिक्त धारा देना", "बिजली के बिल को कम करना", "विद्युत आघात (Shock) से सुरक्षा प्रदान करना", "उपकरण की चमक बढ़ाना"],
+        correct: 2,
+        explanation: "यदि किसी उपकरण के धात्विक आवरण में धारा लीकेज हो जाए, तो भूसंपर्क तार उस धारा को सीधे पृथ्वी में भेज देता है जिससे झटका नहीं लगता।"
+      }
+    ];
+
+    /* ============================================================
+       2. GLOBAL STATE & CONFIG
+       ============================================================ */
+    let quizData = [];
+    let currentQIndex = 0;
+    let userAnswers = {}; // { qIndex: selectedOptionIndex }
+    let studentDetails = { name: "", roll: "", className: "Class 10th" };
+    
+    // Timer
+    const TOTAL_QUIZ_TIME = 30 * 60; // 30 Minutes in seconds
+    let secondsRemaining = TOTAL_QUIZ_TIME;
+    let timerInterval = null;
+    let quizStarted = false;
+    let quizSubmitted = false;
+
+    // Anti-Cheat
+    let cheatWarningsCount = 0;
+
+    /* ============================================================
+       3. SYNTHETIC SOUND GENERATOR (WEB AUDIO API - NO CDNS)
+       ============================================================ */
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function playTone(type) {
+      try {
+        if (!audioCtx) {
+          audioCtx = new AudioContextClass();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        if (type === 'click') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(520, now);
+          osc.frequency.exponentialRampToValueAtTime(780, now + 0.07);
+          gain.gain.setValueAtTime(0.09, now);
+          gain.gain.linearRampToValueAtTime(0.001, now + 0.07);
+          osc.start(now);
+          osc.stop(now + 0.07);
+        } else if (type === 'select') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(660, now);
+          gain.gain.setValueAtTime(0.12, now);
+          gain.gain.linearRampToValueAtTime(0.001, now + 0.09);
+          osc.start(now);
+          osc.stop(now + 0.09);
+        } else if (type === 'warn') {
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(190, now);
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.linearRampToValueAtTime(0.01, now + 0.28);
+          osc.start(now);
+          osc.stop(now + 0.28);
+        } else if (type === 'fanfare') {
+          // Success melody
+          playChime(523.25, 0);   // C5
+          playChime(659.25, 0.1); // E5
+          playChime(783.99, 0.2); // G5
+          playChime(1046.5, 0.3); // C6
+        }
+      } catch (e) {
+        // Fallback silently if browser restricts autoplay
+      }
+    }
+
+    function playChime(freq, delay) {
+      setTimeout(() => {
+        try {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.value = freq;
+          gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+          gain.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 0.35);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.35);
+        } catch(e){}
+      }, delay * 1000);
+    }
+
+    /* ============================================================
+       4. FULLSCREEN HANDLER
+       ============================================================ */
+    const fsToggleBtn = document.getElementById("fsToggleBtn");
+    fsToggleBtn.addEventListener("click", () => {
+      playTone('click');
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+        fsToggleBtn.querySelector('.fs-text').textContent = "Exit FS";
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+          fsToggleBtn.querySelector('.fs-text').textContent = "Fullscreen";
+        }
+      }
+    });
+
+    /* ============================================================
+       5. SHUFFLE HELPER (Randomized Questions)
+       ============================================================ */
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    /* ============================================================
+       6. START QUIZ HANDLER
+       ============================================================ */
+    function handleStartQuiz(e) {
+      e.preventDefault();
+      const nameVal = document.getElementById("studentName").value.trim();
+      const rollVal = document.getElementById("studentRoll").value.trim();
+
+      if (!nameVal || !rollVal) {
+        alert("कृपया अपना नाम और रोल नंबर दर्ज करें!");
+        return;
+      }
+
+      playTone('click');
+
+      studentDetails.name = nameVal;
+      studentDetails.roll = rollVal;
+      studentDetails.className = document.getElementById("studentClass").value;
+
+      // Update student badge in quiz header
+      document.getElementById("studentInfoBadge").textContent = `${studentDetails.name} | Roll: ${studentDetails.roll}`;
+
+      // Randomize questions for this session
+      quizData = shuffleArray(rawQuestions);
+      userAnswers = {};
+      currentQIndex = 0;
+      secondsRemaining = TOTAL_QUIZ_TIME;
+      quizStarted = true;
+      quizSubmitted = false;
+
+      // Hide start screen, show header & quiz screen
+      document.getElementById("startScreen").style.display = "none";
+      document.getElementById("stickyHeader").style.display = "block";
+      document.getElementById("quizScreen").style.display = "block";
+
+      // Render first question
+      renderCurrentQuestion();
+      startTimer();
+      updateProgressBar();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ============================================================
+       7. TIMER IMPLEMENTATION
+       ============================================================ */
+    function startTimer() {
+      clearInterval(timerInterval);
+      updateTimerDisplay();
+
+      timerInterval = setInterval(() => {
+        if (secondsRemaining > 0) {
+          secondsRemaining--;
+          updateTimerDisplay();
+        } else {
+          clearInterval(timerInterval);
+          // Auto submit when time runs out
+          alert("⏱️ समय समाप्त हो गया है! आपका टेस्ट स्वतः सबमिट किया जा रहा है।");
+          executeQuizSubmission();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(secondsRemaining / 60);
+      const secs = secondsRemaining % 60;
+      const formatted = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      
+      const timerDisplay = document.getElementById("timerDisplay");
+      const timerPill = document.getElementById("timerPill");
+      timerDisplay.textContent = formatted;
+
+      // Urgent warning when under 3 minutes
+      if (secondsRemaining <= 180) {
+        timerPill.classList.add("urgent");
+      } else {
+        timerPill.classList.remove("urgent");
+      }
+    }
+
+    /* ============================================================
+       8. QUESTION RENDERING & OPTION SELECTION
+       ============================================================ */
+    function renderCurrentQuestion() {
+      const q = quizData[currentQIndex];
+      const totalQ = quizData.length;
+
+      // Update badge & title
+      document.getElementById("qNumberBadge").textContent = `प्रश्न ${currentQIndex + 1} / ${totalQ}`;
+      document.getElementById("questionText").textContent = q.question;
+
+      // Options
+      const optionsContainer = document.getElementById("optionsContainer");
+      optionsContainer.innerHTML = "";
+
+      const optLetters = ["A", "B", "C", "D"];
+
+      q.options.forEach((optText, optIndex) => {
+        const isSelected = userAnswers[currentQIndex] === optIndex;
+        
+        const card = document.createElement("div");
+        card.className = `option-card ${isSelected ? 'selected' : ''}`;
+        card.onclick = () => selectOption(optIndex);
+
+        card.innerHTML = `
+          <div class="opt-circle">${optLetters[optIndex]}</div>
+          <div class="opt-text">${optText}</div>
+        `;
+        optionsContainer.appendChild(card);
+      });
+
+      // Manage navigation buttons
+      document.getElementById("prevBtn").style.visibility = currentQIndex === 0 ? "hidden" : "visible";
+
+      if (currentQIndex === totalQ - 1) {
+        document.getElementById("nextBtn").style.display = "none";
+        document.getElementById("submitModalBtn").style.display = "inline-flex";
+      } else {
+        document.getElementById("nextBtn").style.display = "inline-flex";
+        document.getElementById("submitModalBtn").style.display = "none";
+      }
+
+      updateProgressBar();
+
+      // Card animation & scroll
+      const cardElem = document.getElementById("questionCard");
+      cardElem.classList.remove("fade-in");
+      void cardElem.offsetWidth; // trigger reflow
+      cardElem.classList.add("fade-in");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function selectOption(optIndex) {
+      playTone('select');
+      // Save answer immediately
+      userAnswers[currentQIndex] = optIndex;
+      renderCurrentQuestion();
+    }
+
+    function navigateQuestion(step) {
+      playTone('click');
+      const newIndex = currentQIndex + step;
+      if (newIndex >= 0 && newIndex < quizData.length) {
+        currentQIndex = newIndex;
+        renderCurrentQuestion();
+      }
+    }
+
+    function updateProgressBar() {
+      const totalQ = quizData.length;
+      const progressPercent = ((currentQIndex + 1) / totalQ) * 100;
+      document.getElementById("progressFill").style.width = `${progressPercent}%`;
+    }
+
+    /* ============================================================
+       9. SUBMIT CONFIRMATION MODAL & EXECUTION
+       ============================================================ */
+    function openSubmitModal() {
+      playTone('click');
+      const totalQ = quizData.length;
+      const attemptedCount = Object.keys(userAnswers).length;
+      const unattempted = totalQ - attemptedCount;
+
+      document.getElementById("submitModalStats").innerHTML = `
+        कुल प्रश्न: <strong>${totalQ}</strong><br>
+        हल किए गए: <strong style="color: var(--neon-green);">${attemptedCount}</strong> | 
+        शेष: <strong style="color: var(--coral-red);">${unattempted}</strong>
+      `;
+      document.getElementById("submitModal").classList.add("active");
+    }
+
+    function closeSubmitModal() {
+      playTone('click');
+      document.getElementById("submitModal").classList.remove("active");
+    }
+
+    function confirmSubmitQuiz() {
+      closeSubmitModal();
+      executeQuizSubmission();
+    }
+
+    function executeQuizSubmission() {
+      if (quizSubmitted) return;
+      quizSubmitted = true;
+      clearInterval(timerInterval);
+
+      playTone('fanfare');
+
+      const totalQ = quizData.length;
+      let correctCount = 0;
+      let wrongCount = 0;
+      let attemptedCount = 0;
+
+      quizData.forEach((q, idx) => {
+        if (userAnswers.hasOwnProperty(idx)) {
+          attemptedCount++;
+          if (userAnswers[idx] === q.correct) {
+            correctCount++;
+          } else {
+            wrongCount++;
+          }
+        }
+      });
+
+      const percentage = ((correctCount / totalQ) * 100).toFixed(1);
+      const timeUsedSeconds = TOTAL_QUIZ_TIME - secondsRemaining;
+      const timeMins = Math.floor(timeUsedSeconds / 60);
+      const timeSecs = timeUsedSeconds % 60;
+      const timeFormatted = `${timeMins} मिनट ${timeSecs} सेकंड`;
+
+      // Fill Result Screen
+      document.getElementById("scoreDisplay").textContent = `${correctCount}/${totalQ}`;
+      document.getElementById("percentageDisplay").textContent = `${percentage}% अंक`;
+      document.getElementById("resStudentName").textContent = studentDetails.name;
+      document.getElementById("resRollNo").textContent = studentDetails.roll;
+      document.getElementById("resTotalQ").textContent = totalQ;
+      document.getElementById("resAttempted").textContent = attemptedCount;
+      document.getElementById("resCorrect").textContent = correctCount;
+      document.getElementById("resWrong").textContent = wrongCount;
+      document.getElementById("resTimeTaken").textContent = timeFormatted;
+
+      // Status & Feedback
+      const resultFeedback = document.getElementById("resultFeedback");
+      const resultEmoji = document.getElementById("resultEmoji");
+      const resStatus = document.getElementById("resStatus");
+
+      if (percentage >= 85) {
+        resultEmoji.textContent = "🌟";
+        resultFeedback.textContent = "असाधारण प्रदर्शन! आपकी तैयारी उत्कृष्ट है।";
+        resStatus.textContent = "Grade A+ (सर्वोत्कृष्ट)";
+        resStatus.className = "stat-value text-green";
+      } else if (percentage >= 60) {
+        resultEmoji.textContent = "👍";
+        resultFeedback.textContent = "बहुत अच्छा प्रदर्शन! आप बोर्ड परीक्षा के लिए तैयार हैं।";
+        resStatus.textContent = "Grade A (प्रथम श्रेणी)";
+        resStatus.className = "stat-value text-cyan";
+      } else if (percentage >= 40) {
+        resultEmoji.textContent = "📖";
+        resultFeedback.textContent = "अच्छा प्रयास! थोड़ी और मेहनत से बेहतर परिणाम मिलेगा।";
+        resStatus.textContent = "Grade B (उत्तीर्ण)";
+        resStatus.className = "stat-value text-gold";
+      } else {
+        resultEmoji.textContent = "💡";
+        resultFeedback.textContent = "आपको विद्युत धारा अध्याय का पुनरीक्षण (Revision) करने की आवश्यकता है।";
+        resStatus.textContent = "सुधार आवश्यक";
+        resStatus.className = "stat-value text-red";
+      }
+
+      // Populate Review Section
+      buildReviewList();
+
+      // Switch views
+      document.getElementById("quizScreen").style.display = "none";
+      document.getElementById("stickyHeader").style.display = "none";
+      document.getElementById("resultScreen").style.display = "block";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ============================================================
+       10. DETAILED REVIEW SECTION BUILDER
+       ============================================================ */
+    function buildReviewList() {
+      const container = document.getElementById("reviewQuestionsList");
+      container.innerHTML = "";
+
+      const optLetters = ["A", "B", "C", "D"];
+
+      quizData.forEach((q, idx) => {
+        const userChoice = userAnswers[idx];
+        const isAnswered = userAnswers.hasOwnProperty(idx);
+        const isCorrect = isAnswered && userChoice === q.correct;
+
+        const card = document.createElement("div");
+        card.className = "review-card";
+
+        let statusTag = "";
+        if (!isAnswered) {
+          statusTag = `<span style="color: var(--amber-gold); font-size: 0.8rem; margin-left: 8px;">[अनुत्तरित (Unattempted)]</span>`;
+        } else if (isCorrect) {
+          statusTag = `<span style="color: var(--neon-green); font-size: 0.8rem; margin-left: 8px;">[✔ सही (+1)]</span>`;
+        } else {
+          statusTag = `<span style="color: var(--coral-red); font-size: 0.8rem; margin-left: 8px;">[✖ गलत]</span>`;
+        }
+
+        let optionsHtml = "";
+        q.options.forEach((opt, optIdx) => {
+          let optClass = "review-opt";
+          let labelBadge = "";
+
+          if (optIdx === q.correct) {
+            optClass += " correct";
+            labelBadge = `<strong style="margin-left: auto;">(सही उत्तर ✔)</strong>`;
+          } else if (isAnswered && optIdx === userChoice && userChoice !== q.correct) {
+            optClass += " wrong";
+            labelBadge = `<strong style="margin-left: auto;">(आपका उत्तर ✖)</strong>`;
+          }
+
+          optionsHtml += `
+            <div class="${optClass}">
+              <span><strong>${optLetters[optIdx]}.</strong> ${opt}</span>
+              ${labelBadge}
+            </div>
+          `;
+        });
+
+        card.innerHTML = `
+          <div class="review-q-num">प्रश्न ${idx + 1} / 35 ${statusTag}</div>
+          <div class="review-q-text">${q.question}</div>
+          <div>${optionsHtml}</div>
+          <div class="explanation-box">
+            💡 <strong>व्याख्या:</strong> ${q.explanation}
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function scrollToReview() {
+      playTone('click');
+      document.getElementById("reviewContainer").scrollIntoView({ behavior: "smooth" });
+    }
+
+    /* ============================================================
+       11. RESTART QUIZ
+       ============================================================ */
+    function restartQuiz() {
+      playTone('click');
+      document.getElementById("resultScreen").style.display = "none";
+      document.getElementById("startScreen").style.display = "flex";
+      document.getElementById("studentRoll").value = "";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ============================================================
+       12. ANTI-CHEAT SYSTEM (TAB SWITCH MONITOR)
+       ============================================================ */
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden" && quizStarted && !quizSubmitted) {
+        cheatWarningsCount++;
+        playTone('warn');
+        showCheatWarning();
+      }
+    });
+
+    window.addEventListener("blur", () => {
+      if (quizStarted && !quizSubmitted) {
+        cheatWarningsCount++;
+        playTone('warn');
+        showCheatWarning();
+      }
+    });
+
+    function showCheatWarning() {
+      const toast = document.getElementById("antiCheatToast");
+      toast.textContent = `⚠️ चेतावनी #${cheatWarningsCount}: आपने स्क्रीन या टैब बदला! कृपया ध्यानपूर्वक टेस्ट दें।`;
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
